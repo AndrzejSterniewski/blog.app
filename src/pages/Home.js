@@ -1,6 +1,10 @@
+import Posts from "../components/features/Posts";
+
 const Home = () => {
     return (
-        <h1>Home page</h1>
+        <>
+        <Posts />
+        </>
     )
 }
 
