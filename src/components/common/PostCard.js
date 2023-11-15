@@ -8,9 +8,9 @@ const PostCard = (props) => {
             <Card.Body>
                 <Card.Title>{props.title}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">Author: {props.author}</Card.Subtitle>
-                <Card.Subtitle className="mb-2 text-muted">Published: {props.publishedDate}</Card.Subtitle>
+                <Card.Subtitle className="mb-2 text-muted">Published: {props.published}</Card.Subtitle>
                 <Card.Text>
-                    {props.shortDescription}
+                    {props.description}
                 </Card.Text>
                 <Button href={"/post/" + props.id}>Read more</Button>
             </Card.Body>
