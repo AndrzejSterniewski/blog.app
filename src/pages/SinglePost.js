@@ -5,9 +5,7 @@ import { useParams } from 'react-router';
 import { Button } from "react-bootstrap";
 import Modal from 'react-bootstrap/Modal';
 import { deletePost } from "../redux/postsRedux";
-
-import Nav from 'react-bootstrap/Nav';
-import { NavLink } from 'react-router-dom';
+import { Navigate } from "react-router-dom";
 
 const SinglePost = () => {
 
@@ -19,18 +17,16 @@ const SinglePost = () => {
     const post = useSelector(state => getPostById(state, id));
     console.log(post);
 
-
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const removePost = () => {
         dispatch(deletePost(id));
-        if(!post) return <Nav.Link as={NavLink} to="/"/>
-        else return <Nav.Link as={NavLink} to={"/post/" + id}/>
     }
 
-    return (
+    if (!post) return <Navigate to="/" />
+    else return (
         <div>
             <section className="d-flex justify-content-between flex-wrap">
                 <h1>Post title</h1>
