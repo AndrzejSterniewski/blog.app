@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import { useSelector } from 'react-redux';
 import { getAllPosts } from '../../redux/postsRedux';
 import PostCard from '../common/PostCard';
-import { Link } from 'react-router-dom';
+import Row from 'react-bootstrap/Row';
 
 const Posts = () => {
 
@@ -12,11 +12,11 @@ const Posts = () => {
         <>
             <section className="d-flex align-items-center justify-content-between flex-wrap">
                 <h1>All posts</h1>
-                <Button as={Link} to="/post/add" variant="outline-primary">Add Post</Button>
+                <Button href="/post/add" variant="outline-primary">Add Post</Button>
             </section>
-            <section className="d-flex justify-content-between">
+            <Row>
                 {posts.map(card => <PostCard key={card.id} {...card} />)}
-            </section>
+            </Row>
         </>
     )
 }

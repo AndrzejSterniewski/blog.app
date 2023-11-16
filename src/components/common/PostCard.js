@@ -1,21 +1,24 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import Col from 'react-bootstrap/Col';
 
 const PostCard = (props) => {
 
     return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Body>
-                <Card.Title>{props.title}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">Author: {props.author}</Card.Subtitle>
-                <Card.Subtitle className="mb-2 text-muted">Published: {props.published}</Card.Subtitle>
-                <Card.Text>
-                    {props.description}
-                </Card.Text>
-                <Button as={Link} to={"/post/" + props.id}>Read more</Button>
-            </Card.Body>
-        </Card>
+        <Col sm={4} className="p-2">
+            <Card>
+                <Card.Body>
+                    <Card.Title>{props.title}</Card.Title>
+                    <Card.Subtitle className="mb-2">Author: {props.author}</Card.Subtitle>
+                    <Card.Subtitle className="mb-2 text-muted">Published: {props.published}</Card.Subtitle>
+                    <Card.Text>
+                        {props.description}
+                    </Card.Text>
+                    <Button as={Link} to={"/post/" + props.id}>Read more</Button>
+                </Card.Body>
+            </Card>
+        </Col>
     )
 }
 

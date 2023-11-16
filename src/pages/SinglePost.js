@@ -32,7 +32,7 @@ const SinglePost = () => {
             <section className="d-flex justify-content-between flex-wrap">
                 <h1>Post title</h1>
                 <div className="d-flex justify-content-between align-items-center">
-                    <Button as={Link} to={"/post/edit/" + id} variant="outline-info">Edit</Button>
+                    <Button as={Link} to={"/post/edit/" + id} variant="outline-info" className="m-2">Edit</Button>
                     <Button variant="outline-danger" onClick={handleShow}>Delete</Button>{' '}
                     <Modal show={show} onHide={handleClose}>
                         <Modal.Header closeButton>
