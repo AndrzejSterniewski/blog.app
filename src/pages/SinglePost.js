@@ -8,6 +8,8 @@ import Modal from 'react-bootstrap/Modal';
 import { deletePost } from "../redux/postsRedux";
 import { Navigate } from "react-router-dom";
 
+import styles from './SinglePost.module.scss';
+
 const SinglePost = () => {
 
     const dispatch = useDispatch();
@@ -28,7 +30,7 @@ const SinglePost = () => {
 
     if (!post) return <Navigate to="/" />
     else return (
-        <div>
+        <div className={styles.container}>
             <section className="d-flex justify-content-between flex-wrap">
                 <h1>Post title</h1>
                 <div className="d-flex justify-content-between align-items-center">
