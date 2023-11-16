@@ -1,12 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
-import { getPostById } from "../redux/postsRedux";
+import { getPostById, deletePost } from "../redux/postsRedux";
 import { useParams } from 'react-router';
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
-import { deletePost } from "../redux/postsRedux";
-import { Navigate } from "react-router-dom";
 
 import styles from './SinglePost.module.scss';
 
