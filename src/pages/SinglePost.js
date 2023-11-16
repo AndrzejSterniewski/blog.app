@@ -3,6 +3,7 @@ import { useState } from "react";
 import { getPostById } from "../redux/postsRedux";
 import { useParams } from 'react-router';
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
 import { deletePost } from "../redux/postsRedux";
 import { Navigate } from "react-router-dom";
@@ -30,8 +31,8 @@ const SinglePost = () => {
         <div>
             <section className="d-flex justify-content-between flex-wrap">
                 <h1>Post title</h1>
-                <div className="d-flex justify-content-between">
-                    <Button href={"/post/edit/" + id} variant="outline-info">Edit</Button>
+                <div className="d-flex justify-content-between align-items-center">
+                    <Button as={Link} to={"/post/edit/" + id} variant="outline-info">Edit</Button>
                     <Button variant="outline-danger" onClick={handleShow}>Delete</Button>{' '}
                     <Modal show={show} onHide={handleClose}>
                         <Modal.Header closeButton>

@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 const PostCard = (props) => {
 
@@ -12,7 +13,7 @@ const PostCard = (props) => {
                 <Card.Text>
                     {props.description}
                 </Card.Text>
-                <Button href={"/post/" + props.id}>Read more</Button>
+                <Button as={Link} to={"/post/" + props.id}>Read more</Button>
             </Card.Body>
         </Card>
     )
