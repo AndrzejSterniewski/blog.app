@@ -28,15 +28,15 @@ const AddPostForm = () => {
         <Form onSubmit={handleSubmit}>
             {/* <Form.Group className="mb-3" controlId="formBasicEmail"> */}
             <Form.Label>Title</Form.Label>
-            <Form.Control type="text" placeholder="Enter title" value={title} onChange={e => setTitle(e.target.value)} />
+            <Form.Control type="text" placeholder="Enter title" style={{ width: '50%' }} value={title} onChange={e => setTitle(e.target.value)} />
             {/* </Form.Group> */}
             {/* <Form.Group> */}
             <Form.Label>Author</Form.Label>
-            <Form.Control type="text" placeholder="Enter author" value={author} onChange={e => setAuthor(e.target.value)} />
+            <Form.Control type="text" placeholder="Enter author" style={{ width: '50%' }} value={author} onChange={e => setAuthor(e.target.value)} />
             {/* </Form.Group> */}
             {/* <Form.Group> */}
             <Form.Label>Published</Form.Label>
-            <Form.Control type="text" placeholder="Enter date" value={published} onChange={e => setPublished(e.target.value)} />
+            <Form.Control type="text" placeholder="Enter date" style={{ width: '50%' }} value={published} onChange={e => setPublished(e.target.value)} />
             {/* </Form.Group> */}
             {/* <Form.Group> */}
             <Form.Label>Short description</Form.Label>
