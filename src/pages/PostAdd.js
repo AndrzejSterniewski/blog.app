@@ -1,7 +1,6 @@
 import Container from "../components/common/Container";
 import AddPostForm from "../components/features/AddPostForm";
 
-
 const PostAdd = () => {
     return (
         <Container>

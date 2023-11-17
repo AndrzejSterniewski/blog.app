@@ -1,6 +1,12 @@
+import Container from "../components/common/Container";
+import EditPostForm from "../components/features/EditPostForm";
+
 const PostEdit = () => {
     return (
-        <h1>Edit post</h1>
+        <Container>
+            <h1>Edit post</h1>
+            <EditPostForm />
+        </Container>
     )
 }
 
