@@ -17,27 +17,17 @@ const PostForm = ({ action, actionText, ...props }) => {
 
     return (
         <Form onSubmit={handleSubmit}>
-            {/* <Form.Group className="mb-3" controlId="formBasicEmail"> */}
             <Form.Label>Title</Form.Label>
             <Form.Control type="text" placeholder="Enter title" style={{ width: '50%' }} value={title} onChange={e => setTitle(e.target.value)} />
-            {/* </Form.Group> */}
-            {/* <Form.Group> */}
             <Form.Label>Author</Form.Label>
             <Form.Control type="text" placeholder="Enter author" style={{ width: '50%' }} value={author} onChange={e => setAuthor(e.target.value)} />
-            {/* </Form.Group> */}
-            {/* <Form.Group> */}
             <Form.Label>Published</Form.Label>
             <Form.Control type="text" placeholder="Enter date" style={{ width: '50%' }} value={published} onChange={e => setPublished(e.target.value)} />
-            {/* </Form.Group> */}
-            {/* <Form.Group> */}
             <Form.Label>Short description</Form.Label>
             <Form.Control as="textarea" placeholder="Leave a comment" style={{ height: '100px' }} value={description} onChange={e => setDescription(e.target.value)} />
-            {/* </Form.Group> */}
-            {/* <Form.Group> */}
             <Form.Label>Main content</Form.Label>
             <Form.Control as="textarea" placeholder="Main text" style={{ height: '100px' }} value={content} onChange={e => setContent(e.target.value)} />
-            {/* </Form.Group> */}
-            <Button variant="primary" type="submit" action="action" value={actionText}>
+            <Button variant="primary" type="submit">
                 {actionText}
             </Button>
         </Form>
