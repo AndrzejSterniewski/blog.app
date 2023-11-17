@@ -5,18 +5,15 @@ import { useParams } from 'react-router';
 import { Button } from "react-bootstrap";
 import { Link, Navigate } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
-
-import styles from './SinglePost.module.scss';
+import Container from '../components/common/Container';
 
 const SinglePost = () => {
 
     const dispatch = useDispatch();
 
     const { id } = useParams();
-    console.log(id);
 
     const post = useSelector(state => getPostById(state, id));
-    console.log(post);
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -28,7 +25,7 @@ const SinglePost = () => {
 
     if (!post) return <Navigate to="/" />
     else return (
-        <div className={styles.container}>
+        <Container>
             <section className="d-flex justify-content-between flex-wrap">
                 <h1>Post title</h1>
                 <div className="d-flex justify-content-between align-items-center">
@@ -55,7 +52,7 @@ const SinglePost = () => {
                 <p>Published: {post.published}</p>
                 <p>{post.content}</p>
             </section>
-        </div>
+        </Container>
     )
 }
 
