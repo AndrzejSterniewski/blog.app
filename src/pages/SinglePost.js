@@ -50,7 +50,9 @@ const SinglePost = () => {
             <section>
                 <p>Author: {post.author}</p>
                 <p>Published: {post.published}</p>
-                <p>{post.content}</p>
+                {/* <p >{post.content}</p> */}
+                {/* new code: */}
+                <p dangerouslySetInnerHTML={{ __html: post.content }} />
             </section>
         </Container>
     )
