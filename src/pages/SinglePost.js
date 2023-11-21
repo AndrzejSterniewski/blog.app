@@ -6,6 +6,7 @@ import { Button } from "react-bootstrap";
 import { Link, Navigate } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
 import Container from '../components/common/Container';
+import formatDate from "../utils/formatDate";
 
 const SinglePost = () => {
 
@@ -49,9 +50,7 @@ const SinglePost = () => {
             </section>
             <section>
                 <p>Author: {post.author}</p>
-                <p>Published: {post.published}</p>
-                {/* <p >{post.content}</p> */}
-                {/* new code: */}
+                <p>Published: {formatDate(post.published)}</p>
                 <p dangerouslySetInnerHTML={{ __html: post.content }} />
             </section>
         </Container>

@@ -1,44 +1,43 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
-
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import styles from './PostForm.module.scss';
 
 const PostForm = ({ action, actionText, ...props }) => {
 
     const [title, setTitle] = useState(props.title || '');
     const [author, setAuthor] = useState(props.author || '');
-    const [published, setPublished] = useState(props.published || '');
+    const [published, setPublished] = useState(props.published ? new Date(props.published) : new Date());
     const [description, setDescription] = useState(props.description || '');
     const [content, setContent] = useState(props.content || '');
 
-
     const handleSubmit = e => {
         e.preventDefault();
-        action({ title, author, published, description, content });
+        action({ title, author, published: published.toString(), description, content });
     };
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <Form.Label>Title</Form.Label>
+        <Form clasName={styles.form} onSubmit={handleSubmit}>
+            <Form.Label className="d-block">Title</Form.Label>
             <Form.Control type="text" placeholder="Enter title" style={{ width: '50%' }} value={title} onChange={e => setTitle(e.target.value)} />
             <Form.Label>Author</Form.Label>
             <Form.Control type="text" placeholder="Enter author" style={{ width: '50%' }} value={author} onChange={e => setAuthor(e.target.value)} />
             <Form.Label>Published</Form.Label>
             {/* <Form.Control type="text" placeholder="Enter date" style={{ width: '50%' }} value={published} onChange={e => setPublished(e.target.value)} /> */}
-            {/* <DatePicker selected={published} onChange={setPublished} /> */}
-            <Form.Label>Short description</Form.Label>
+            <DatePicker className="m-2" selected={published} onChange={setPublished} />
+            <Form.Label className="d-block">Short description</Form.Label>
             <Form.Control as="textarea" placeholder="Leave a comment" style={{ height: '100px' }} value={description} onChange={e => setDescription(e.target.value)} />
             {/* <Form.Label>Main content</Form.Label> */}
             {/* <Form.Control as="textarea" placeholder="Main text" style={{ height: '100px' }} value={content} onChange={e => setContent(e.target.value)} /> */}
-            <Form.Label>Main content</Form.Label>
+            <Form.Label className="mt-1">Main content</Form.Label>
             <ReactQuill theme="snow" placeholder="Main text" value={content} onChange={setContent} />
-                {/* <div className="my-editing-area" style={{ height: '100px' }} value={content} onChange={e => setContent(e.target.value)} /> */}
+                {/* <div className="my-editing-area" style={{ height: '100px'} } value={content} onChange={e => setContent(e.target.value)} /> */}
             {/* </ReactQuill> */}
-            <Button variant="primary" type="submit">
+            <Button className="mt-2" variant="primary" type="submit">
                 {actionText}
             </Button>
         </Form>

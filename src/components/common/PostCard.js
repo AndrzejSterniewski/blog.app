@@ -2,6 +2,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import Col from 'react-bootstrap/Col';
+import formatDate from '../../utils/formatDate';
 
 const PostCard = (props) => {
 
@@ -11,7 +12,7 @@ const PostCard = (props) => {
                 <Card.Body>
                     <Card.Title>{props.title}</Card.Title>
                     <Card.Subtitle className="mb-2">Author: {props.author}</Card.Subtitle>
-                    <Card.Subtitle className="mb-2 text-muted">Published: {props.published}</Card.Subtitle>
+                    <Card.Subtitle className="mb-2 text-muted">Published: {formatDate(props.published)}</Card.Subtitle>
                     <Card.Text>
                         {props.description}
                     </Card.Text>

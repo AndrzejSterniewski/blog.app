@@ -5,8 +5,7 @@ const initialState = {
             title: 'First article',
             description: 'Short description of the article...',
             content: 'Main content of first article',
-            published: '15-11-2023',
-            // published: new Date('15-11-2023'),
+            published: new Date('11-15-2023').toString(),
             author: 'John Doe'
         },
         {
@@ -14,8 +13,7 @@ const initialState = {
             title: 'Second article',
             description: 'Short description of the article...',
             content: 'Main content of second article',
-            published: '20-11-2023',
-            // published: new Date('20-11-2023'),
+            published: new Date('11-20-2023').toString(),
             author: 'John Doe'
         },
         {
@@ -23,8 +21,7 @@ const initialState = {
             title: 'Third article',
             description: 'Short description of the article...',
             content: 'Main content of third article',
-            published: '08-07-2023',
-            // published: new Date('08-07-2023'),
+            published: new Date('08-07-2023').toString(),
             author: 'John Doe'
         },
         {
@@ -32,8 +29,7 @@ const initialState = {
             title: 'Fourth article',
             description: 'Short description of the article...',
             content: 'Main content of fourth article',
-            published: '02-02-2022',
-            // published: new Date('02-02-2022'),
+            published: new Date('02-02-2022').toString(),
             author: 'John Doe'
         },
     ],
