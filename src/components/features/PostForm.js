@@ -31,7 +31,7 @@ const PostForm = ({ action, actionText, ...props }) => {
             {/* <Form.Control type="text" placeholder="Enter date" style={{ width: '50%' }} value={published} onChange={e => setPublished(e.target.value)} /> */}
             {/* <DatePicker selected={published} onChange={setPublished} /> */}
             <Form.Label>Short description</Form.Label>
-            <Form.Control as="textarea" placeholder="Leave a comment" style={{ height: '100px' }} value={description} onChange={setDescription} />
+            <Form.Control as="textarea" placeholder="Leave a comment" style={{ height: '100px' }} value={description} onChange={e => setDescription(e.target.value)} />
             {/* <Form.Label>Main content</Form.Label> */}
             {/* <Form.Control as="textarea" placeholder="Main text" style={{ height: '100px' }} value={content} onChange={e => setContent(e.target.value)} /> */}
             <Form.Label>Main content</Form.Label>
