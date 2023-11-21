@@ -5,7 +5,6 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import styles from './PostForm.module.scss';
 
 const PostForm = ({ action, actionText, ...props }) => {
 
@@ -21,7 +20,7 @@ const PostForm = ({ action, actionText, ...props }) => {
     };
 
     return (
-        <Form clasName={styles.form} onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
             <Form.Label className="d-block">Title</Form.Label>
             <Form.Control type="text" placeholder="Enter title" style={{ width: '50%' }} value={title} onChange={e => setTitle(e.target.value)} />
             <Form.Label>Author</Form.Label>
@@ -35,7 +34,7 @@ const PostForm = ({ action, actionText, ...props }) => {
             {/* <Form.Control as="textarea" placeholder="Main text" style={{ height: '100px' }} value={content} onChange={e => setContent(e.target.value)} /> */}
             <Form.Label className="mt-1">Main content</Form.Label>
             <ReactQuill theme="snow" placeholder="Main text" value={content} onChange={setContent} />
-                {/* <div className="my-editing-area" style={{ height: '100px'} } value={content} onChange={e => setContent(e.target.value)} /> */}
+            {/* <div className="my-editing-area" style={{ height: '100px'} } value={content} onChange={e => setContent(e.target.value)} /> */}
             {/* </ReactQuill> */}
             <Button className="mt-2" variant="primary" type="submit">
                 {actionText}
