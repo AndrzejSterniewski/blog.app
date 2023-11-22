@@ -17,16 +17,20 @@ const PostForm = ({ action, actionText, ...props }) => {
 
     const { register, handleSubmit: validate, formState: { errors } } = useForm();
 
+    const [contentError, setContentError] = useState(false);
+    const [dateError, setDateError] = useState(false);
+
     const handleSubmit = e => {
         // e.preventDefault();
-        action({ title, author, published: published.toString(), description, content });
+        setContentError(!content);
+        setDateError(!published);
+        if (content || published) {
+            action({ title, author, published: published.toString(), description, content });
+        }
     };
 
     return (
         <Form onSubmit={validate(handleSubmit)}>
-            {/* <Form.Label className="d-block">Title</Form.Label>
-            <Form.Control type="text" placeholder="Enter title" style={{ width: '50%' }} value={title} onChange={e => setTitle(e.target.value)} />
-             */}
             <Form.Group clasName="mb-3" controlId="formBasicEmail">
                 <Form.Label>Title</Form.Label>
                 <Form.Control
@@ -52,8 +56,8 @@ const PostForm = ({ action, actionText, ...props }) => {
 
             <Form.Group className="mb-3">
                 <Form.Label>Published</Form.Label>
-                {/* <Form.Control type="text" placeholder="Enter date" style={{ width: '50%' }} value={published} onChange={e => setPublished(e.target.value)} /> */}
                 <DatePicker className="m-1" selected={published} onChange={setPublished} />
+                {dateError && <small className="d-block form-text text-danger mt-2">Date can't be empty</small>}
             </Form.Group>
 
             <Form.Group className="mb-3">
@@ -65,15 +69,13 @@ const PostForm = ({ action, actionText, ...props }) => {
                     as="textarea" placeholder="Leave a comment" style={{ height: '100px' }}
                 />
                 {errors.author && <small className="d-block form-text text-danger mt-2">Description is too short (min is 20)</small>}
-                {/* <Form.Label>Main content</Form.Label> */}
-                {/* <Form.Control as="textarea" placeholder="Main text" style={{ height: '100px' }} value={content} onChange={e => setContent(e.target.value)} /> */}
             </Form.Group>
 
             <Form.Group className="mb-3">
                 <Form.Label className="mt-1">Main content</Form.Label>
-                <ReactQuill theme="snow" placeholder="Main text" value={content} onChange={setContent} />
-                {/* <div className="my-editing-area" style={{ height: '100px'} } value={content} onChange={e => setContent(e.target.value)} /> */}
-                {/* </ReactQuill> */}
+                <ReactQuill theme="snow" placeholder="Main text" value={content} onChange={setContent}
+                />
+                {contentError && <small className="d-block form-text text-danger mt-2">Content can't be empty</small>}
             </Form.Group>
 
             <Button className="mt-2" variant="primary" type="submit">
