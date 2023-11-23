@@ -9,6 +9,7 @@ import Header from './views/Header';
 import Footer from './views/Footer';
 import { Container } from 'react-bootstrap';
 import Categories from './pages/Categories';
+import CategoryPage from './pages/CategoryPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/post/add" element={<PostAdd />} />
         <Route path="/post/edit/:id" element={<PostEdit />} />
         <Route path="/categories" element={<Categories />} /> 
+        <Route path="/category/:id" element={<CategoryPage />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -17,7 +17,8 @@ const PostCard = (props) => {
                     <Card.Text>
                         {props.description}
                     </Card.Text>
-                    <Button as={Link} to={"/post/" + props.id}>Read more</Button>
+                    {/* <Button as={Link} to={"/post/" + props.id}>Read more</Button> */}
+                    <Button as={Link} to={`/post/${props.id}`}>Read more</Button>
                 </Card.Body>
             </Card>
         </Col>

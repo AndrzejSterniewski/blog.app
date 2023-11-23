@@ -7,7 +7,7 @@ import 'react-quill/dist/quill.snow.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useSelector } from 'react-redux';
-import { getAllPosts, getAllCategories,  } from '../../redux/postsRedux';
+import { getAllCategories, } from '../../redux/categoriesRedux';
 
 const PostForm = ({ action, actionText, ...props }) => {
 
@@ -23,11 +23,7 @@ const PostForm = ({ action, actionText, ...props }) => {
     const [contentError, setContentError] = useState(false);
     const [dateError, setDateError] = useState(false);
 
-    const posts = useSelector(getAllPosts);
     const categories = useSelector(getAllCategories);
-
-    // const categories = useSelector((state) => getCategories(state));
-    console.log('posts', posts);
     console.log('categories', categories);
 
     const handleSubmit = e => {
@@ -74,18 +70,11 @@ const PostForm = ({ action, actionText, ...props }) => {
                 <Form.Label>Category</Form.Label>
                 <Form.Select aria-label="Default select example" value={category} onChange={e => setCategory(e.target.value)} style={{ width: '50%' }}>
                     <option>Select category</option>
-                    <option value="sport">Sport</option>
-                    <option value="news">News</option>
-                    <option value="movies">Movies</option>
-
-                    {/* {categories.map((value) => <option value={categories.value}>{categories.value}</option>)} */}
-                    {/* {categories.map(category => <option key={category}>{category}</option>)} */}
-
-                    {/* {categories.map((category) => (
-            <option key={category} id={category}>
-              {category}
-            </option>
-          ))} */}
+                    {categories.map((category) => (
+                        <option key={category}>
+                            {category}
+                        </option>
+                    ))}
                 </Form.Select>
             </Form.Group>
 

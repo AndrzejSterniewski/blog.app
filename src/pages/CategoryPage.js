@@ -1,22 +1,26 @@
-
-import Container from '../components/common/Container';
 import PostCard from '../components/common/PostCard';
 import Row from 'react-bootstrap/Row';
 import { useSelector } from 'react-redux';
-import { getPostsByCategory } from '../redux/postsRedux';
+import { getPostsByCategory } from '../redux/categoriesRedux';
+import { useParams } from 'react-router';
+import { Navigate } from 'react-router-dom';
 
-const CategoryPage = (props) => {
+const CategoryPage = () => {
 
-    const singleCategory = useSelector(getPostsByCategory);
-    
+    const { id } = useParams();
+
+    const singleCategoryPosts = useSelector(state => getPostsByCategory(state, id));
+
+    if(!singleCategoryPosts) return <Navigate to='/' />;
     return (
         <>
-            <h1>Category: {props.categories}</h1>
-            <Container>
-                <Row>
-                    {singleCategory.map(card => <PostCard key={card.id} {...card} />)}
-                </Row>
-            </Container>
+            <h1>Category: {id}</h1>
+            <Row>
+                {singleCategoryPosts.map(card => <PostCard key={id} {...card} />)}
+            </Row>
+            {singleCategoryPosts.length === 0 && (
+                <p>No posts in this category...</p>
+            )}
         </>
     )
 }

@@ -1,30 +1,24 @@
 import Container from "../components/common/Container";
 import ListGroup from 'react-bootstrap/ListGroup';
-import { ListGroupItem } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { getAllPosts, getCategories } from "../redux/postsRedux";
-import PostCard from "../components/common/PostCard";
-import { Link } from "react-router-dom";
+import { getAllCategories } from "../redux/categoriesRedux";
+import { Link, Navigate } from "react-router-dom";
 
 const Categories = () => {
 
-    // const categories = useSelector(getCategories);
+    const categories = useSelector(getAllCategories);
 
+    if (!categories) return <Navigate to="/" />
     return (
         <Container>
             <h1>Categories</h1>
             <ListGroup as="ul" style={{ width: '75%' }} className="d-flex m-auto">
-                {/* <ListGroup.Item as={Link} variant="outline-info">
-                    Cras justo odio
-                </ListGroup.Item>
-                <ListGroup.Item as={Link}>Dapibus ac facilisis in</ListGroup.Item>
-                <ListGroup.Item as={Link}>
-                    Morbi leo risus
-                </ListGroup.Item>
-                <ListGroup.Item as={Link}>Porta ac consectetur ac</ListGroup.Item> */}
-                {/* {posts.map(post => <ListGroup.Item as={Link} to={"/categories/" + category} key={post.categories} {...posts}> {post.categories}</ListGroup.Item>)} */}
+                {categories.map((category) => (
+                    <ListGroup.Item key={category} id={category} className='fs-5'>
+                        <Link to={`/category/${category}`}>{category}</Link>
+                    </ListGroup.Item>
+                ))}
             </ListGroup>
-            {/* <Button as={Link} to={"/post/edit/" + id} variant="outline-info" className="m-2">Edit</Button> */}
         </Container>
     )
 }
