@@ -4,8 +4,13 @@ const initialState = {
             id: '1',
             title: 'First article',
             description: 'Short description of the article...',
+            // categories: [
+            //     'Sport', 'News', 'Movies'
+            // ],
             categories: [
-                'Sport', 'News', 'Movies'
+                {value: 'sport', label: 'Sport'},
+                {value: 'news', label: 'News'},
+                {value: 'movies', label: 'Movies'}
             ],
             content: 'Main content of first article',
             published: new Date('11-15-2023').toString(),

@@ -75,7 +75,8 @@ const PostForm = ({ action, actionText, ...props }) => {
                     <option value="news">News</option>
                     <option value="movies">Movies</option>
 
-                    {categories.map((value) => <option value={categories.value}>{categories.value}</option>)}
+                    {/* {categories.map((value) => <option value={categories.value}>{categories.value}</option>)} */}
+                    {categories.map(category => <option value={category.value}>{category.label}</option>)}
                 </Form.Select>
             </Form.Group>
 
