@@ -7,7 +7,7 @@ import 'react-quill/dist/quill.snow.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useSelector } from 'react-redux';
-import { getCategories } from '../../redux/postsRedux';
+import { getAllPosts, getAllCategories,  } from '../../redux/postsRedux';
 
 const PostForm = ({ action, actionText, ...props }) => {
 
@@ -23,9 +23,12 @@ const PostForm = ({ action, actionText, ...props }) => {
     const [contentError, setContentError] = useState(false);
     const [dateError, setDateError] = useState(false);
 
-    const categories = useSelector(getCategories);
+    const posts = useSelector(getAllPosts);
+    const categories = useSelector(getAllCategories);
 
-    console.log(categories);
+    // const categories = useSelector((state) => getCategories(state));
+    console.log('posts', posts);
+    console.log('categories', categories);
 
     const handleSubmit = e => {
         // e.preventDefault();
@@ -76,7 +79,13 @@ const PostForm = ({ action, actionText, ...props }) => {
                     <option value="movies">Movies</option>
 
                     {/* {categories.map((value) => <option value={categories.value}>{categories.value}</option>)} */}
-                    {categories.map(category => <option value={category.value}>{category.label}</option>)}
+                    {/* {categories.map(category => <option key={category}>{category}</option>)} */}
+
+                    {/* {categories.map((category) => (
+            <option key={category} id={category}>
+              {category}
+            </option>
+          ))} */}
                 </Form.Select>
             </Form.Group>
 

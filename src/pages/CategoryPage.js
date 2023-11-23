@@ -3,11 +3,11 @@ import Container from '../components/common/Container';
 import PostCard from '../components/common/PostCard';
 import Row from 'react-bootstrap/Row';
 import { useSelector } from 'react-redux';
-import { getPostsCategory } from '../redux/postsRedux';
+import { getPostsByCategory } from '../redux/postsRedux';
 
 const CategoryPage = (props) => {
 
-    const singleCategory = useSelector(getPostsCategory);
+    const singleCategory = useSelector(getPostsByCategory);
     
     return (
         <>

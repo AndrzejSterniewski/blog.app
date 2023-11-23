@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const Categories = () => {
 
-    const posts = useSelector(getCategories);
+    // const categories = useSelector(getCategories);
 
     return (
         <Container>
@@ -22,7 +22,7 @@ const Categories = () => {
                     Morbi leo risus
                 </ListGroup.Item>
                 <ListGroup.Item as={Link}>Porta ac consectetur ac</ListGroup.Item> */}
-                {posts.map(post => <ListGroup.Item as={Link} to={"/categories/" + post.category} key={post.categories} {...posts}> {post.categories}</ListGroup.Item>)}
+                {/* {posts.map(post => <ListGroup.Item as={Link} to={"/categories/" + category} key={post.categories} {...posts}> {post.categories}</ListGroup.Item>)} */}
             </ListGroup>
             {/* <Button as={Link} to={"/post/edit/" + id} variant="outline-info" className="m-2">Edit</Button> */}
         </Container>
