@@ -51,6 +51,7 @@ const SinglePost = () => {
             <section>
                 <p>Author: {post.author}</p>
                 <p>Published: {formatDate(post.published)}</p>
+                <p>Category : {post.category}</p>
                 <p dangerouslySetInnerHTML={{ __html: post.content }} />
             </section>
         </Container>

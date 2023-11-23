@@ -6,12 +6,15 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useSelector } from 'react-redux';
+import { getCategories } from '../../redux/postsRedux';
 
 const PostForm = ({ action, actionText, ...props }) => {
 
     const [title, setTitle] = useState(props.title || '');
     const [author, setAuthor] = useState(props.author || '');
     const [published, setPublished] = useState(props.published ? new Date(props.published) : new Date());
+    const [category, setCategory] = useState(props.category || '');
     const [description, setDescription] = useState(props.description || '');
     const [content, setContent] = useState(props.content || '');
 
@@ -20,18 +23,22 @@ const PostForm = ({ action, actionText, ...props }) => {
     const [contentError, setContentError] = useState(false);
     const [dateError, setDateError] = useState(false);
 
+    const categories = useSelector(getCategories);
+
+    console.log(categories);
+
     const handleSubmit = e => {
         // e.preventDefault();
         setContentError(!content);
         setDateError(!published);
         if (content || published) {
-            action({ title, author, published: published.toString(), description, content });
+            action({ title, author, published: published.toString(), category, description, content });
         }
     };
 
     return (
         <Form onSubmit={validate(handleSubmit)}>
-            <Form.Group clasName="mb-3" controlId="formBasicEmail">
+            <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Title</Form.Label>
                 <Form.Control
                     {...register("title", { required: true, minLength: 3 })}
@@ -58,6 +65,18 @@ const PostForm = ({ action, actionText, ...props }) => {
                 <Form.Label>Published</Form.Label>
                 <DatePicker className="m-1" selected={published} onChange={setPublished} />
                 {dateError && <small className="d-block form-text text-danger mt-2">Date can't be empty</small>}
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+                <Form.Label>Category</Form.Label>
+                <Form.Select aria-label="Default select example" value={category} onChange={e => setCategory(e.target.value)} style={{ width: '50%' }}>
+                    <option>Select category</option>
+                    <option value="sport">Sport</option>
+                    <option value="news">News</option>
+                    <option value="movies">Movies</option>
+
+                    {categories.map((value) => <option value={categories.value}>{categories.value}</option>)}
+                </Form.Select>
             </Form.Group>
 
             <Form.Group className="mb-3">
