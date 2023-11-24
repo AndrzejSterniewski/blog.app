@@ -11,7 +11,7 @@ const CategoryPage = () => {
 
     const singleCategoryPosts = useSelector(state => getPostsByCategory(state, id));
 
-    if(!singleCategoryPosts) return <Navigate to='/' />;
+    if (!singleCategoryPosts.length) return <Navigate to='/' />;
     return (
         <>
             <h1>Category: {id}</h1>

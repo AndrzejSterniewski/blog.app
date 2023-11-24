@@ -7,7 +7,7 @@ const AddPostForm = () => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    
+
     const handleSubmit = post => {
         dispatch(addPost(post));
         navigate('/');

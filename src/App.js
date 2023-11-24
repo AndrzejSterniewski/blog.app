@@ -20,7 +20,7 @@ function App() {
         <Route path="/post/:id" element={<SinglePost />} />
         <Route path="/post/add" element={<PostAdd />} />
         <Route path="/post/edit/:id" element={<PostEdit />} />
-        <Route path="/categories" element={<Categories />} /> 
+        <Route path="/categories" element={<Categories />} />
         <Route path="/category/:id" element={<CategoryPage />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
